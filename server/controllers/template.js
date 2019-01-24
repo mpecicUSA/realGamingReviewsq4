@@ -4,5 +4,5 @@ module.exports = {
 // CHANGE ME TO AN ACTUAL FUNCTION
     index: function(req, res) {
     res.send("is this working");
-    },
+    }
 }
