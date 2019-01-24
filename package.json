@@ -1,0 +1,19 @@
+{
+  "name": "realgamingreviewsq4",
+  "version": "1.0.0",
+  "description": "Group project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpecicUSA/realGamingReviewsq4.git"
+  },
+  "author": "Marko Pecic, Lucas Romero, Nathan Norberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpecicUSA/realGamingReviewsq4/issues"
+  },
+  "homepage": "https://github.com/mpecicUSA/realGamingReviewsq4#readme"
+}
