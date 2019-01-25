@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
         table.string('title');
         table.integer('rating');
         table.text('description');
-        table.timestapms(true, true)
+        table.timestamps(true, true)
     })
 };
 
