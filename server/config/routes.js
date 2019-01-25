@@ -8,6 +8,11 @@ const comments = require("../controllers/comments.js")
 
 module.exports = (app) => {
 
+<<<<<<< HEAD
+=======
+    // Get requests
+
+>>>>>>> 0f03159d110f22df3f19fdb0e0bc5cb33f7fcf11
     //USERS
     app.get("/users", users.getAll);
     app.post('/users/addUser', users.addUser);
@@ -24,11 +29,31 @@ module.exports = (app) => {
     app.patch('/reviews/edit/:id', reviews.editReview);
     app.delete('/reviews/delete/:id', reviews.deleteReview);
 
+<<<<<<< HEAD
+=======
+    //GAMES
+    app.post('/games/addGame', games.AddGame);
+
+>>>>>>> 0f03159d110f22df3f19fdb0e0bc5cb33f7fcf11
     //COMMENTS
     app.get('/comments', comments.getAll);
     app.post('/comments/addComment', comments.AddComment);
     app.patch('/comments/:id', comments.editComment);
     app.delete('/comments/delete/:id', reviews.deleteComment);
+
+    // Edit requests
+
+    //USERS
+    app.get('/edit/:id', users.EditUser);
+    app.post('/edit/:id', users.UpdatedUser);
+
+    //REVIEWS
+    app.get('/edit/:id', reviews.EditReview);
+    app.post('/edit/:id', reviews.UpdatedReview);
+
+    //COMMENTS
+    app.get('/edit/:id', comments.EditComment);
+    app.post('/edit/:id', comments.UpdatedComment);
 
 
 }
