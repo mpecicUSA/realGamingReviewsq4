@@ -8,7 +8,7 @@ const comments = require("../controllers/comments.js")
 
 module.exports = (app) => {
 
-    // Get requests 
+    // Get requests
 
     //USERS
     app.get("/users", users.getAll);
@@ -33,9 +33,23 @@ module.exports = (app) => {
 
     //GAMES
     app.post('/games/addGame', games.AddGame);
-    
+
     //COMMENTS
     app.post('/comments/addComment', comments.AddComment);
+
+    // Edit requests
+
+    //USERS
+    app.get('/edit/:id', users.EditUser);
+    app.post('/edit/:id', users.UpdatedUser);
+
+    //REVIEWS
+    app.get('/edit/:id', reviews.EditReview);
+    app.post('/edit/:id', reviews.UpdatedReview);
+
+    //COMMENTS
+    app.get('/edit/:id', comments.EditComment);
+    app.post('/edit/:id', comments.UpdatedComment);
 
 
 }
