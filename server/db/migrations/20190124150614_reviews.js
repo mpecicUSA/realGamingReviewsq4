@@ -17,7 +17,7 @@ exports.up = function(knex, Promise) {
         table.string('rating');
         table.string('platform');
         table.string('review_title');
-        table.string('review');
+        table.text('review');
         table.timestamps(true,true)
     })
 };

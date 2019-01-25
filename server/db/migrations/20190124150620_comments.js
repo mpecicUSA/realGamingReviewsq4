@@ -15,7 +15,7 @@ exports.up = function(knex, Promise) {
           .notNullable()
           .index();
         table.string('comment_title');
-        table.string('comment');
+        table.text('comment');
         table.timestamps(true,true)
     })
 };
