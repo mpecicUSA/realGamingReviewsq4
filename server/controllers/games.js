@@ -16,5 +16,12 @@ module.exports = {
             .then((games)=> {
                 res.json(games)
         })
+    },
+    //delete single game
+    deleteGame: (req, res) => {
+        knex('games').del().where('id', req.params.id)
+        .then((results) => {
+            res.send(200)
+        })
     }
 }

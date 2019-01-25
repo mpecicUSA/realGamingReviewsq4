@@ -16,5 +16,13 @@ module.exports = {
             .then((users)=> {
                 res.json(users)
         })
+    },
+    //delete user
+    //we will replace this with actual user later (instead of 1)
+    deleteUser: (req, res) => {
+        knex('users').del(req.body).where('id', 1)
+        .then((results) => {
+            res.send(200)
+        })
     }
 }
