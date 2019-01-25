@@ -14,9 +14,8 @@ exports.up = function(knex, Promise) {
           .onDelete("CASCADE")
           .notNullable()
           .index();
-        table.string('platform');
-        table.string('review_title');
-        table.string('review');
+        table.string('comment_title');
+        table.string('comment');
         table.timestamps(true,true)
     })
 };
