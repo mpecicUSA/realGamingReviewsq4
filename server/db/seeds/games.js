@@ -10,4 +10,6 @@ exports.seed = function(knex, Promise) {
         {title: 'Skate 3', rating: '9', description: 'A third person skateboarding game that includes many different real life locations. Skate it up on Skate 3!'},
         {title: 'Call of duty: Black Ops', rating: '10', description: 'A modernized first person shooting game, that includes multi-player play, and Zombies!'},
         {title: 'Red Dead Redemption', rating: '10', description: 'Take it back to the Wild Wild West, living near limitlessly. Explore various areas that existed in 1911! '},
+      ]);
+    });
 };
