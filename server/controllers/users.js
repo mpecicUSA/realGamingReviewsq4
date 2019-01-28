@@ -1,3 +1,7 @@
+const hasher = require('../config/hasher');
+const jwt = require('jsonwebtoken');
+const secret = process.env.JWT_SECRET || 'caferio';
+
 const knex = require("../db/knex.js");
 
 module.exports = {
@@ -18,9 +22,8 @@ module.exports = {
         })
     },
     //delete user
-    //we will replace this with actual user later (instead of 1)
     deleteUser: (req, res) => {
-        knex('users').del(req.body).where('id', 1)
+        knex('users').del().where('id', req.decoded.id)
         .then((results) => {
             res.send(200)
         })
