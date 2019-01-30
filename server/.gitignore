@@ -1,5 +1,6 @@
 node_modules/
 local.env
+knexfile.js
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
