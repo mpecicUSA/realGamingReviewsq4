@@ -1,3 +1,8 @@
 node_modules/
-knexfile.js
 local.env
+knexfile.js
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
