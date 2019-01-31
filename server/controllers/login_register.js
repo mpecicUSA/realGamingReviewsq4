@@ -6,7 +6,7 @@ const knex = require("../db/knex.js");
 
 
 
-module.exports(app) = { 
+module.exports = { 
 
     login: (req, res) => {
         knex('users')

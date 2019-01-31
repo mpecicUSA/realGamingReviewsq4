@@ -5,7 +5,7 @@ const reviews = require("../controllers/reviews.js")
 const comments = require("../controllers/comments.js")
 const login_register = require('../controllers/login_register.js')
 const jwt = require('jsonwebtoken');
-const secret = process.env.JWT-SECRET || 'caferio'
+const secret = process.env.JWT_SECRET || 'caferio'
 
 
 module.exports = (app) => {

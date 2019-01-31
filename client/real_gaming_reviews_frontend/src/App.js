@@ -15,6 +15,9 @@ import { Button } from 'reactstrap'
 
 
 class App extends Component {
+  state = { 
+    
+  }
   render() {
     return (
       <BrowserRouter>
