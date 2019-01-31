@@ -9,22 +9,30 @@ import Register from './components/Register.js'
 import IndividualGame from './components/Individual_game.js'
 import UserProfile from './components/User_profile.js'
 import CreateReview from './components/Create_review.js'
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Button } from 'reactstrap'
 
 
 
 class App extends Component {
   render() {
     return (
-      <>
-      <Navbar />
-      <Home />
-      <Login />
-      <Register />
-      <IndividualGame />
-      <UserProfile />
-      <CreateReview />
-      <Footer />
-      </>
+      <BrowserRouter>
+        <>
+          <Navbar />
+
+          <Switch>
+            <Route path="/" exact render={() => <Home />} />
+            <Route path="/login" render={() => <Login />} />
+            <Route path="/register" render={() => <Register />} />
+            <Route path="/game/:id" render={() => <IndividualGame />} />
+            <Route path="/user/:id" render={() => <UserProfile />} />
+            <Route path="/createreview" render={() => <CreateReview />} />
+          </Switch>
+
+          <Footer />
+        </>
+      </BrowserRouter>
     );
   }
 }
