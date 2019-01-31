@@ -12,6 +12,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 
 
+
 class App extends Component {
   state = { 
     
@@ -20,18 +21,20 @@ class App extends Component {
     return (
       <BrowserRouter>
         <>
-          <Navbarz />
 
-          <Switch>
-            <Route path="/" exact render={() => <Home />} />
-            <Route path="/login" render={() => <Login />} />
-            <Route path="/register" render={() => <Register />} />
-            <Route path="/game/:id" render={() => <IndividualGame />} />
-            <Route path="/user/:id" render={() => <UserProfile />} />
-            <Route path="/createreview" render={() => <CreateReview />} />
-          </Switch>
+            <Navbarz />
+            <Switch>
+              <Route path="/" exact render={() => <Home />} />
+              <Route path="/login" render={() => <Login />} />
+              <Route path="/register" render={() => <Register />} />
+              <Route path="/game/:id" render={() => <IndividualGame />} />
+              <Route path="/user/:id" render={() => <UserProfile />} />
+              <Route path="/createreview" render={() => <CreateReview />} />
+            </Switch>
 
-          <Footer />
+
+
+            <Footer />
         </>
       </BrowserRouter>
     );

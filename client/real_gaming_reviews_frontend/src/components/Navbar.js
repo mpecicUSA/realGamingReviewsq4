@@ -46,7 +46,10 @@ class Navbarz extends Component {
                 {/* insert logic here IF token ?
                 userData == true ? <NavLink href='/profile'>Welcome back {DATA USER NAME} </NavLink> :
                 */}
-                <NavLink href="/login">Login</NavLink>
+                <NavLink href="/login">Login </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/register">Register</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -57,3 +60,7 @@ class Navbarz extends Component {
 }
   
   export default Navbarz;
+
+  // TODO confirm routes are correct 
+  // TODO remove href update to LinkTo? 
+  // TODO Pass token data down to Navbar so can display welcome user or login register nav choices in navbar
