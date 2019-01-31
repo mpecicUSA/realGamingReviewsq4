@@ -16,8 +16,23 @@ import { Button } from 'reactstrap'
 
 class App extends Component {
   state = { 
-    
+
   }
+
+
+  async ComponentDidMount() {
+    const commentsResponse = await fetch('http://localhost8000/comments')
+    const comments = await commentsResponse.json()
+    const usersResponse = await fetch('http://localhost8000/users')
+    const users = await usersResponse.json()
+    const reviewsResponse = await fetch('http://localhost8000/reviews')
+    const reviews = await reviewsResponse.json()
+    const gamesResponse = await fetch('http://localhost8000/games')
+    const games = await gamesResponse.json()
+    this.setState({ comments, users, reviews, games})
+  }
+
+
   render() {
     return (
       <BrowserRouter>

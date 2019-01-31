@@ -23,12 +23,12 @@ module.exports = (app) => {
 
    //TOKEN REQUIRED
    app.delete('/users/delete/:id', users.deleteUser);
-   app.post('/reviews/addReview', reviews.AddReview);
+   app.post('/reviews/addReview', reviews.addReview);
    app.patch('/reviews/edit/:id', reviews.editReview);
    app.delete('/reviews/delete/:id', reviews.deleteReview);
-   app.post('/comments/addComment', comments.AddComment);
+   app.post('/comments/addComment', comments.addComment);
    app.patch('/comments/:id', comments.editComment);
-   app.delete('/comments/delete/:id', reviews.deleteComment);
+   app.delete('/comments/delete/:id', comments.deleteComment);
 
 }
 
