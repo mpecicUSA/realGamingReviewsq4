@@ -1,12 +1,15 @@
 if(process.env.NODE_ENV !== "production")
     require('dotenv').load({path: './local.env'});
 
-
 module.exports = {
     development: {
         client: 'pg',
         connection: {
+<<<<<<< HEAD
             database: 'realGamingReviews',
+=======
+            database: "realGamingReviews",
+>>>>>>> eefca05704c9e630cf4f69a1a0da45760a46611f
             host: 'localhost'
         },
         migrations: {
