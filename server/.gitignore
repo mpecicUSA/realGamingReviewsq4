@@ -1,6 +1,7 @@
 node_modules/
 local.env
 knexfile.js
+package-lock.json
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

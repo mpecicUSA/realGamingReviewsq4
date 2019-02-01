@@ -10,8 +10,9 @@ class Home extends Component {
     render() {
       return (
         <>
-        <h1>Home page here</h1>
+        <h1>Welcome to Real Game Reviews</h1>
         <HomeGameList />
+
         </>
       );
     }
