@@ -42,7 +42,7 @@ class App extends Component {
 
             <Navbarz />
             <Switch>
-              <Route path="/" exact render={() => <Home />} />
+              <Route path="/" exact render={() => <Home props={this.state} />} />
               <Route path="/login" render={() => <Login />} />
               <Route path="/register" render={() => <Register />} />
               <Route path="/game/:id" render={(props) => <IndividualGame reviews={this.state.reviews} games={this.state.games} {...props}/>} />
@@ -60,3 +60,5 @@ class App extends Component {
 }
 
 export default App;
+
+// TODO resize footer, nav, and home to have own sections, home currently will hide behind footer
