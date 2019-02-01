@@ -1,22 +1,37 @@
-import React, { Component } from 'react';
-import {Navbar, NavbarBrand, Container} from "reactstrap"
+import React from "react";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 
+const Footer = () => {
+  return (
+    <MDBFooter color="unique-color-dark" className="font-small pt-4 mt-4 fixed-bottom">
+      <MDBContainer fluid className="text-center text-md-left">
+        <MDBRow>
+          <MDBCol md="6">
+            <h5 className="title">Real Gaming Reviews</h5>
+            <p>
+              Thanks for visiting our site! 
+            </p>
+          </MDBCol>
+          <MDBCol md="6">
+            <h5 className="title">Links</h5>
+            <ul>
+              <li className="list-unstyled">
+                <a href="#!">Contact Us</a>
+              </li>
+              <li className="list-unstyled">
+                <a href="#!">Privacy Policy</a>
+              </li>
+            </ul>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      <div className="footer-copyright text-center py-3">
+        <MDBContainer fluid>
+          &copy; {new Date().getFullYear()} Copyright: Lucas, Nathan, Marko
+        </MDBContainer>
+      </div>
+    </MDBFooter>
+  );
+}
 
-class Footer extends Component {
-    render() {
-      return (
-        <div className="fixed-bottom">
-          <Navbar color="dark" dark> 
-            <Container>
-              <NavbarBrand>Copyright &copy; 2019 Galvanize-104 Lucas Marko Nathan</NavbarBrand>
-              <NavbarBrand>Contact Us Careers Privacy Policy Terms of Use </NavbarBrand>
-            </Container>
-          </Navbar>
-        </div>
-      );
-    }
-  }
-  
-  export default Footer;
-
-  // TODO Color Choices, Make Second NavbarBrand seperate items and links
+export default Footer;
