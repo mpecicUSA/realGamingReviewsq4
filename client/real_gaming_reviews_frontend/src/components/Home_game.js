@@ -1,36 +1,41 @@
 import React, { Component } from 'react';
-import {Media, Container, Row, Col, Button} from "reactstrap";
-
-
-
+import { Container, Row, Col, Button} from "reactstrap";
+import ReactStars from "react-stars"
+import { withRouter } from 'react-router-dom'
 
 
 
 class HomeGame extends Component {
+  buttonClicked = (e) => {
+    this.props.history.push(`/game/${this.props.game.id}`)
+  }
     render() {
+      let gameDetail = this.props.game
       return (
-      <Container>
-        <Col>
+        <Container>
           <Row>
-            <Media>
-            <Media left href="#">
-              <Media object data-src="https://via.placeholder.com/150" alt="Generic placeholder image" />
-            </Media>
-            <Media body>
-              <Media heading>
-                Game Title Goes here
-              </Media>
-              Game Description goes here.Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </Media>
-            </Media>
-            <Button> Reviews </Button>
+            <Col>
+              { gameDetail.title }
+            </Col>
+            <Col>
+            Platform
+            </Col>
+            <Col>
+            # of Reviews
+            </Col>
+            <Col>
+              <ReactStars count={5} edit={false} value={gameDetail.rating/2} />
+            </Col>
+            <Col>
+            <Button id={gameDetail.id} onClick={this.buttonClicked}>View Game</Button> 
+            </Col>
+            <Col>
+              <Button>Review Game</Button>
+            </Col>
           </Row>
-        </Col>
-      </Container>
+        </Container>
       );
     }
   }
   
-  export default HomeGame;
-
-  // TODOD Pending DATA 
+  export default withRouter(HomeGame);
