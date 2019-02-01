@@ -5,7 +5,7 @@ import Footer from './components/Footer.js'
 import Home from './components/Home.js'
 import Login from './components/Login.js'
 import Register from './components/Register.js'
-import IndividualGame from './components/Individual_game.js'
+import IndividualGameReviewList from './components/Individual_game_review_list.js'
 import UserProfile from './components/User_profile.js'
 import CreateReview from './components/Create_review.js'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -45,7 +45,7 @@ class App extends Component {
               <Route path="/" exact render={() => <Home props={this.state} />} />
               <Route path="/login" render={() => <Login />} />
               <Route path="/register" render={() => <Register />} />
-              <Route path="/game/:id" render={(props) => <IndividualGame reviews={this.state.reviews} games={this.state.games} {...props}/>} />
+              <Route path="/game/:id" render={(props) => <IndividualGameReviewList reviews={this.state.reviews} games={this.state.games} {...props}/>} />
               <Route path="/user/:id" render={() => <UserProfile />} />
               <Route path="/createreview" render={() => <CreateReview />} />
             </Switch>
