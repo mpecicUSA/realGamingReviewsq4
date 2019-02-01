@@ -6,9 +6,10 @@ import Home from './components/Home.js'
 import Login from './components/Login.js'
 import Register from './components/Register.js'
 import IndividualGameReviewList from './components/Individual_game_review_list.js'
-import UserProfile from './components/User_profile.js'
+import UserProfileReviewList from './components/User_profile_review_list.js'
 import CreateReview from './components/Create_review.js'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 
 
 
@@ -45,8 +46,8 @@ class App extends Component {
               <Route path="/" exact render={() => <Home />} />
               <Route path="/login" render={() => <Login />} />
               <Route path="/register" render={() => <Register />} />
-              <Route path="/game/:id" render={(props) => <IndividualGameReviewList reviews={this.state.reviews} games={this.state.games} {...props}/>} />
-              <Route path="/user/:id" render={() => <UserProfile />} />
+              <Route path="/game/:id" render={(props) => <IndividualGameReviewList {...props} reviews={this.state.reviews} games={this.state.games} />} />
+              <Route path="/user/:id" render={() => <UserProfileReviewList />} />
               <Route path="/createreview" render={() => <CreateReview />} />
             </Switch>
 

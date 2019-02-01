@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
         table.string('title');
         table.integer('rating');
         table.text('description');
+        table.text('img');
         table.timestamps(true, true)
     })
 };
