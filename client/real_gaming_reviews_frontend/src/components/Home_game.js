@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button} from "reactstrap";
 import ReactStars from "react-stars"
+import { withRouter } from 'react-router-dom'
 
 
 
 class HomeGame extends Component {
+  buttonClicked = (e) => {
+    this.props.history.push(`/game/${this.props.game.id}`)
+  }
     render() {
-      let gameDetail = this.props.gameDetail
+      let gameDetail = this.props.game
       return (
         <Container>
           <Row>
@@ -17,16 +21,16 @@ class HomeGame extends Component {
             Platform
             </Col>
             <Col>
-            Studio
-            </Col>
-            <Col>
-              <ReactStars count={10} edit={false} value={gameDetail.rating} />
-            </Col>
-            <Col>
             # of Reviews
             </Col>
             <Col>
-              <Button> Review </Button>
+              <ReactStars count={5} edit={false} value={gameDetail.rating/2} />
+            </Col>
+            <Col>
+            <Button id={gameDetail.id} onClick={this.buttonClicked}>View Game</Button> 
+            </Col>
+            <Col>
+              <Button>Review Game</Button>
             </Col>
           </Row>
         </Container>
@@ -34,4 +38,4 @@ class HomeGame extends Component {
     }
   }
   
-  export default HomeGame;
+  export default withRouter(HomeGame);
