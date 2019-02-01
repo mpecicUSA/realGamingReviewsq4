@@ -5,8 +5,13 @@ MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggle
 
 class Navbarz extends Component {
 state = {
-  isOpen: false
+  isOpen: false,
 };
+updateSearchBar = (e) => {
+  this.props.searchBarUpdate(e.target.value)
+}
+
+
 
 toggleCollapse = () => {
   this.setState({ isOpen: !this.state.isOpen });
@@ -38,7 +43,7 @@ render() {
             <MDBNavItem>
               <MDBFormInline waves>
                 <div className="md-form my-0">
-                  <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                  <input className="form-control mr-sm-2" type="text" onChange={this.updateSearchBar} value={this.props.searchBar} placeholder="Search" aria-label="Search" />
                 </div>
               </MDBFormInline>
             </MDBNavItem>
