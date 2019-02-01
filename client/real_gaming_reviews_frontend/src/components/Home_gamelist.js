@@ -9,7 +9,7 @@ class HomeGameList extends Component {
     render() {
       return (
         <>
-
+        
         <HomeGame />
         </>
       );
