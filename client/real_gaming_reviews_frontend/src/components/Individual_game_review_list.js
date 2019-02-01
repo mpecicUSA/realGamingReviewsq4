@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IndividualGameReview from './Individual_game_review.js'
+
 
 
 
@@ -8,12 +8,12 @@ import IndividualGameReview from './Individual_game_review.js'
 
 class IndividualGameReviewList extends Component {
     render() {
+      console.log('hello', this.props)
       return (
         <>
-        <h1>Individual game review list here</h1>
-        <IndividualGameReview />
+         <h1>hi</h1>
         </>
-      );
+        );
     }
   }
   
