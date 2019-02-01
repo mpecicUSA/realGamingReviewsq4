@@ -17,7 +17,7 @@ render() {
   return (
       <MDBNavbar color="indigo" dark expand="md">
         <MDBNavbarBrand>
-          <strong className="white-text">Navbar</strong>
+          <strong className="white-text">Real Gaming Reviews</strong>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
@@ -26,23 +26,16 @@ render() {
               <MDBNavLink to="#!">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!">Features</MDBNavLink>
+              <MDBNavLink to="#!">Reviews</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="#!">Pricing</MDBNavLink>
+              <MDBNavLink to="#!">Profile</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                  <span className="mr-2">Dropdown</span>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+              <MDBNavLink to="#!">Login</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink to="#!">Register</MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
@@ -61,3 +54,5 @@ render() {
 }
 
 export default Navbarz;
+
+// TODO Insert Logic for Profile or Login / Register icons in nav bar

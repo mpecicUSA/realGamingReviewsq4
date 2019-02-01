@@ -12,7 +12,6 @@ class Home extends Component {
         <>
         <h1>Welcome to Real Game Reviews</h1>
         <HomeGameList />
-
         </>
       );
     }
