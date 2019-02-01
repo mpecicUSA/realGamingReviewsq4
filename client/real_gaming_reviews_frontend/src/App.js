@@ -14,9 +14,22 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 
 class App extends Component {
-  state = { 
-    
+
+  state = {
   }
+  async componentDidMount() {
+    const commentsResponse = await fetch('http://localhost:8000/comments')
+    const jcomments = await commentsResponse.json()
+    const usersResponse = await fetch('http://localhost:8000/users')
+    const jusers = await usersResponse.json()
+    const reviewsResponse = await fetch('http://localhost:8000/reviews')
+    const jreviews = await reviewsResponse.json()
+    const gamesResponse = await fetch('http://localhost:8000/games')
+    const jgames = await gamesResponse.json()
+    this.setState({ comments: jcomments, users: jusers, reviews: jreviews
+      ,games: jgames})
+  }
+
   render() {
     return (
       <BrowserRouter>
