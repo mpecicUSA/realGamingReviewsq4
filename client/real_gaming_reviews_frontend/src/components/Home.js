@@ -9,8 +9,14 @@ import {Row, Col, Container } from 'reactstrap'
 
 class Home extends Component {
     render() {
-      let games = this.props.games;
-      let gamesList = games.map(item => <HomeGame key={item.id} game={item} />)
+      // let games = this.props.games;
+      // let gamesList = games.map(item => <HomeGame key={item.id} game={item} />)
+      // gamesList = gamesList.filter(gameDetail => gameDetail.title)
+
+
+      let filteredGames = this.props.games.filter(game => game.title.toUpperCase().includes((this.props.searchBar).toUpperCase()))
+        let game = [];
+        game = filteredGames.map(game => <HomeGame key={game.id} game={game} />)
       return (
         <Container>
           <h1>Welcome to Real Game Reviews</h1>
@@ -35,7 +41,7 @@ class Home extends Component {
             Submit a review
             </Col>
           </Row>
-        { gamesList }
+        { game }
         </Container>
       );
     }

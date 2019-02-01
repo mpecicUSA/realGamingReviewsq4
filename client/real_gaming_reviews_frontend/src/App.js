@@ -16,7 +16,8 @@ class App extends Component {
     users: [],
     reviews: [],
     comments: [],
-    games: []
+    games: [],
+    searchBar: ""
   }
 
 
@@ -31,6 +32,11 @@ class App extends Component {
     const games = await gamesResponse.json()
     this.setState({ comments, users, reviews, games })
   }
+  searchBarUpdate = (foo) => {
+      this.setState({
+        searchBar: foo
+      })
+    }
 
 
   render() {
@@ -38,10 +44,10 @@ class App extends Component {
       <BrowserRouter>
         <>
 
-            <Navbarz />
+            <Navbarz searchBarUpdate={this.searchBarUpdate} searchBar={this.props.searchBar} />
             <div className="main">
               <Switch>
-                <Route path="/" exact render={() => <Home games={this.state.games} />} />
+                <Route path="/" exact render={() => <Home searchBar={this.state.searchBar} games={this.state.games} />} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" render={() => <Register />} />
                 <Route path="/game/:id" render={(props) => <IndividualGameReviewList reviews={this.state.reviews} games={this.state.games} {...props} />} />
