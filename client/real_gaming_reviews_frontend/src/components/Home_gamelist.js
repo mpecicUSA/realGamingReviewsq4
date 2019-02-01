@@ -9,7 +9,7 @@ class HomeGameList extends Component {
     render() {
       return (
         <>
-        <h1>Home page game list here</h1>
+
         <HomeGame />
         </>
       );
@@ -17,3 +17,5 @@ class HomeGameList extends Component {
   }
   
   export default HomeGameList;
+
+  // TODO What does this component do? 

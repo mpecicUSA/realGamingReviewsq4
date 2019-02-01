@@ -6,7 +6,7 @@ class Footer extends Component {
     render() {
       return (
         <div className="fixed-bottom">
-          <Navbar color="light" dark> 
+          <Navbar color="dark" dark> 
             <Container>
               <NavbarBrand>Copyright &copy; 2019 Galvanize-104 Lucas Marko Nathan</NavbarBrand>
               <NavbarBrand>Contact Us Careers Privacy Policy Terms of Use </NavbarBrand>
