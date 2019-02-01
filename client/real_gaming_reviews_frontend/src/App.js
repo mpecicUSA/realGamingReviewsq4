@@ -11,10 +11,6 @@ import UserProfileReviewList from './components/User_profile_review_list.js'
 import CreateReview from './components/Create_review.js'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-
-
-
-
 class App extends Component {
   state = { 
     users: [],
