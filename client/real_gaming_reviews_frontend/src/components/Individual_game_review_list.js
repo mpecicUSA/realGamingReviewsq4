@@ -8,10 +8,10 @@ import React, { Component } from 'react';
 
 class IndividualGameReviewList extends Component {
     render() {
-      console.log("props", this.props)
+      console.log('hello', this.props)
       return (
         <>
-         <h1></h1>
+         <h1>hi</h1>
         </>
         );
     }
