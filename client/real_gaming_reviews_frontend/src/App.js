@@ -22,7 +22,7 @@ class App extends Component {
   }
 
 
-  async ComponentDidMount() {
+  async componentDidMount() {
     const commentsResponse = await fetch('http://localhost:8000/comments')
     const comments = await commentsResponse.json()
     const usersResponse = await fetch('http://localhost:8000/users')
