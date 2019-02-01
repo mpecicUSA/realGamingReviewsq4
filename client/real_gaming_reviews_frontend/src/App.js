@@ -44,14 +44,14 @@ class App extends Component {
 
             <Navbarz />
             <div className="main">
-            <Switch>
-              <Route path="/" exact render={() => <Home games={this.state.games} />} />
-              <Route path="/login" component={Login} />
-              <Route path="/register" render={() => <Register />} />
-              <Route path="/game/:id" render={(props) => <IndividualGameReviewList {...props} reviews={this.state.reviews} games={this.state.games} />} />
-              <Route path="/user/:id" render={() => <UserProfileReviewList />} />
-              <Route path="/createreview" render={() => <CreateReview />} />
-            </Switch>
+              <Switch>
+                <Route path="/" exact render={() => <Home games={this.state.games} />} />
+                <Route path="/login" component={Login} />
+                <Route path="/register" render={() => <Register />} />
+                <Route path="/game/:id" render={(props) => <IndividualGameReviewList reviews={this.state.reviews} games={this.state.games} {...props} />} />
+                <Route path="/user/:id" render={() => <UserProfileReviewList />} />
+                <Route path="/createreview" render={() => <CreateReview />} />
+              </Switch>
             </div>
 
 
@@ -65,7 +65,7 @@ class App extends Component {
 
 export default App;
 
-// TODO resize footer, nav, and home to have own sections, home currently will hide behind footer
+// TODO resize footer, nav, and home to have own sections, home currently will hide behind footer DONE
 
 // TODO look into instead of route () => compone
 
