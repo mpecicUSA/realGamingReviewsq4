@@ -15,20 +15,23 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 class App extends Component {
   state = { 
-
+    users: [],
+    reviews: [],
+    comments: [],
+    games: []
   }
 
 
   async ComponentDidMount() {
-    const commentsResponse = await fetch('http://localhost8000/comments')
+    const commentsResponse = await fetch('http://localhost:8000/comments')
     const comments = await commentsResponse.json()
-    const usersResponse = await fetch('http://localhost8000/users')
+    const usersResponse = await fetch('http://localhost:8000/users')
     const users = await usersResponse.json()
-    const reviewsResponse = await fetch('http://localhost8000/reviews')
+    const reviewsResponse = await fetch('http://localhost:8000/reviews')
     const reviews = await reviewsResponse.json()
-    const gamesResponse = await fetch('http://localhost8000/games')
+    const gamesResponse = await fetch('http://localhost:8000/games')
     const games = await gamesResponse.json()
-    this.setState({ comments, users, reviews, games})
+    this.setState({ comments, users, reviews, games })
   }
 
 
@@ -42,7 +45,7 @@ class App extends Component {
               <Route path="/" exact render={() => <Home />} />
               <Route path="/login" render={() => <Login />} />
               <Route path="/register" render={() => <Register />} />
-              <Route path="/game/:id" render={() => <IndividualGame />} />
+              <Route path="/game/:id" render={(props) => <IndividualGame reviews={this.state.reviews} games={this.state.games} {...props}/>} />
               <Route path="/user/:id" render={() => <UserProfile />} />
               <Route path="/createreview" render={() => <CreateReview />} />
             </Switch>
