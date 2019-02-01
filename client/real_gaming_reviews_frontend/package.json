@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+    "mdbootstrap": "^4.7.0",
+=======
     "bootstrap": "^4.2.1",
     "mdbootstrap": "^4.7.0",
     "mdbreact": "^4.9.0",
+>>>>>>> 2771c5d57b5436c7e515644d576f2979306aece7
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
