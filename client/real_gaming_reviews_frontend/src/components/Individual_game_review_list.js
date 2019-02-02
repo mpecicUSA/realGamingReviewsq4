@@ -2,6 +2,37 @@ import React, { Component } from 'react';
 
 
 
+const header = {
+  styles: {
+   textAlign: "center",
+   backgroundColor: "#ffa726",
+   fontSize: "50px",
+    color: "white",
+    marginLeft: "34%",
+    marginTop: "2%"
+  }
+
+}
+const image = {
+  styles: {
+    maxWidth: "350",
+    maxHeight: "350px",
+    marginLeft: "40%",
+    marginTop: "2%",
+    marginBottom: "2%"
+  }
+}
+const description = {
+  styles: {
+    backgroundColor: "#ffa726",
+    fontSize: "30px",
+    color: "white",
+    textAlign: "center"
+  }
+}
+
+
+
 
 
 
@@ -14,13 +45,13 @@ class IndividualGameReviewList extends Component {
       return (
         <>
          <div>
-          <h1>{gameTitle.title}</h1>
+          <span style={header.styles}>{gameTitle.title}</span>
          </div>
          <div>
-          <img src={gameTitle.img} alt="image"/>
+          <img style={image.styles} src={gameTitle.img} alt="image"/>
          </div>
-         <div>
-          <h2>{gameTitle.description}</h2>
+         <div style={description.styles}>
+          <span>{gameTitle.description}</span>
          </div>
          <div>
            <h2>{gameTitle.title} Reviews:</h2>

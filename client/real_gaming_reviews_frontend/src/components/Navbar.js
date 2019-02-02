@@ -3,6 +3,19 @@ import {
 MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline
 } from "mdbreact";
 
+
+const header = {
+  styles: {
+    backgroundColor: "#ffa726"
+  }
+}
+
+const link = { 
+  styles: {
+    color: "white"
+  }
+}
+
 class Navbarz extends Component {
 state = {
   isOpen: false
@@ -19,7 +32,7 @@ toggleCollapse = () => {
 
 render() {
   return (
-      <MDBNavbar color="indigo" dark expand="md">
+      <MDBNavbar style={header.styles} expand="md">
         <MDBNavbarBrand>
           <strong className="white-text">Real Gaming Reviews</strong>
         </MDBNavbarBrand>
@@ -36,16 +49,16 @@ render() {
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem >
-              <MDBNavLink to="/">Home</MDBNavLink>
+              <MDBNavLink style={link.styles} to="/">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/profile">Profile</MDBNavLink>
+              <MDBNavLink style={link.styles} to="/user/:id">Profile</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/login">Login</MDBNavLink>
+              <MDBNavLink style={link.styles} to="/login">Login</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/register">Register</MDBNavLink>
+              <MDBNavLink style={link.styles} to="/register">Register</MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
