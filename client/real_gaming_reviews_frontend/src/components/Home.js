@@ -16,9 +16,11 @@ class Home extends Component {
 
       let filteredGames = this.props.games.filter(game => game.title.toUpperCase().includes((this.props.searchBar).toUpperCase()))
         let game = [];
-        game = filteredGames.map(game => <HomeGame key={game.id} game={game} />)
+
+        game = filteredGames.map(game => <HomeGame key={game.id} game={game} reviews={this.props.reviews.filter(review => review.game_id == game.id)} />)
       return (
         <Container>
+          {console.log("Home Review:", this.props.reviews)}
           <h1>Welcome to Real Game Reviews</h1>
           <h3>Top Games:</h3>
           <Row>
@@ -26,16 +28,16 @@ class Home extends Component {
             Title
             </Col>
             <Col>
-            Platform
+            
             </Col>
             <Col>
-            Studio
+            # of Reviews
             </Col>
             <Col>
             Avg Rating
             </Col>
             <Col>
-            # of Reviews
+            View Game Details
             </Col>
             <Col>
             Submit a review

@@ -47,7 +47,7 @@ class App extends Component {
             <Navbarz searchBarUpdate={this.searchBarUpdate} searchBar={this.props.searchBar} />
             <div className="main">
               <Switch>
-                <Route path="/" exact render={() => <Home searchBar={this.state.searchBar} games={this.state.games} />} />
+                <Route path="/" exact render={() => <Home searchBar={this.state.searchBar} games={this.state.games} reviews={this.state.reviews} />} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" render={() => <Register />} />
                 <Route path="/game/:id" render={(props) => <IndividualGameReviewList reviews={this.state.reviews} games={this.state.games} {...props} />} />
@@ -67,8 +67,22 @@ class App extends Component {
 
 export default App;
 
-// TODO resize footer, nav, and home to have own sections, home currently will hide behind footer DONE
+
 
 // TODO look into instead of route () => compone
 
 // If props not needed to pass down use component else use () => and you must declare what is being passed along with {...props} to pass down history/ router props 
+
+// GENERAL 
+// TODO UNDERSTAND TOKEN, - WHERE IS IT ? 
+
+// NATHAN ?
+// TODO USER LOGIN / REGISTRATION 
+// TODO CREATE REVIEW 
+
+// MARKO 
+// TODO STYLING ON HOME PAGE GAMES, CLEAR SEPERATION OF GAME TITLES
+// TODO REVIEW BUTTON TAKES YOU TO REVIEW COMPONENT 
+// SORT GAMES BY TOP RATED 
+// ON CLICK OF NAV BAR UPDATE ACTIVE TAB 
+

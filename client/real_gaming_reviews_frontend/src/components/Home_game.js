@@ -9,6 +9,7 @@ class HomeGame extends Component {
   buttonClicked = (e) => {
     this.props.history.push(`/game/${this.props.game.id}`)
   }
+  
     render() {
       let gameDetail = this.props.game
       return (
@@ -18,19 +19,19 @@ class HomeGame extends Component {
               { gameDetail.title }
             </Col>
             <Col>
-            Platform
+
             </Col>
             <Col>
-            # of Reviews
+            {this.props.reviews.length}
             </Col>
             <Col>
               <ReactStars count={5} edit={false} value={gameDetail.rating/2} />
             </Col>
             <Col>
-            <Button id={gameDetail.id} onClick={this.buttonClicked}>View Game</Button> 
+            <Button id={gameDetail.id} onClick={this.buttonClicked}>View</Button> 
             </Col>
             <Col>
-              <Button>Review Game</Button>
+              <Button>Review</Button>
             </Col>
           </Row>
         </Container>

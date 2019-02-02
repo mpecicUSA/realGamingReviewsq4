@@ -5,7 +5,7 @@ MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggle
 
 class Navbarz extends Component {
 state = {
-  isOpen: false,
+  isOpen: false
 };
 updateSearchBar = (e) => {
   this.props.searchBarUpdate(e.target.value)
@@ -25,8 +25,17 @@ render() {
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-          <MDBNavbarNav left>
-            <MDBNavItem active>
+        <MDBNavbarNav center>
+            <MDBNavItem>
+              <MDBFormInline waves>
+                <div className="md-form my-0">
+                  <input className="form-control mr-sm-2" type="text" onChange={this.updateSearchBar} value={this.props.searchBar} placeholder="Search games by title" aria-label="Search" />
+                </div>
+              </MDBFormInline>
+            </MDBNavItem>
+          </MDBNavbarNav>
+          <MDBNavbarNav right>
+            <MDBNavItem >
               <MDBNavLink to="/">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
@@ -39,15 +48,6 @@ render() {
               <MDBNavLink to="/register">Register</MDBNavLink>
             </MDBNavItem>
           </MDBNavbarNav>
-          <MDBNavbarNav right>
-            <MDBNavItem>
-              <MDBFormInline waves>
-                <div className="md-form my-0">
-                  <input className="form-control mr-sm-2" type="text" onChange={this.updateSearchBar} value={this.props.searchBar} placeholder="Search" aria-label="Search" />
-                </div>
-              </MDBFormInline>
-            </MDBNavItem>
-          </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
     );
@@ -56,6 +56,4 @@ render() {
 
 export default Navbarz;
 
-// TODO Insert Logic for Profile or Login / Register icons in nav bar
-// TODO Search Bar sorts through games
-// TODO Move Search bar to center of NAV - Right align profile login register 
+// TODO Insert Logic for Profile or Login / Register icons in nav bar - PENDING token / login
