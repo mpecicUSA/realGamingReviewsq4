@@ -51,7 +51,7 @@ class App extends Component {
                 <Route path="/login" component={Login} />
                 <Route path="/register" render={() => <Register />} />
                 <Route path="/game/:id" render={(props) => <IndividualGameReviewList reviews={this.state.reviews} games={this.state.games} {...props} />} />
-                <Route path="/user/:id" render={() => <UserProfileReviewList />} />
+                <Route path="/user/:id" render={(props) => <UserProfileReviewList users={this.state.users} {...props} />} />
                 <Route path="/createreview" render={() => <CreateReview />} />
               </Switch>
             </div>
