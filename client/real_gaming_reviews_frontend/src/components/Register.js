@@ -7,31 +7,28 @@ class Register extends Component {
     password: ""
   }
 
-  onChange = ({target}) => {
-    this.setState({
-      [target.name]: target.value
-    })
+  _onSubmit = (e) => {
+    e.preventDefault();
+    this.props.addUser(this.state);
+    this.setState({username: "", password: ""})
   }
 
-  onSubmit = (e) => {
-    e.preventDefault()
-
-    this.props.addUser(this.state, this.props.history)
+  _onChange = ({target}) =>  {
+    this.setState({[target.name]: target.value})
   }
 
   render() {
 
     return (
       <Container>
-        <Form onSubmit={this.onSubmit}>
-          {this.props.registerError && <span style={{color: "red"}}>Email already linked to an existing account</span>}
+        <Form onSubmit={this._onSubmit}>
           <FormGroup>
             <Label for="email">Email</Label>
-            <Input onChange={this.onChange} value={this.state.email} type="email" name="email" id="email" placeholder="Email" />
+            <Input onChange={this._onChange} value={this.state.email} type="email" name="email" id="email" placeholder="Email" />
           </FormGroup>
           <FormGroup>
             <Label for="password">Password</Label>
-            <Input onChange={this.onChange} value={this.state.password} type="password" name="password" id="password" placeholder="Password" />
+            <Input onChange={this._onChange} value={this.state.password} type="password" name="password" id="password" placeholder="Password" />
           </FormGroup>
           <Button>Submit</Button>
         </Form>

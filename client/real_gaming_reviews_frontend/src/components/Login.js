@@ -8,29 +8,27 @@ class Login extends Component{
     password: ""
   }
 
-  onChange = ({target}) => {
-    this.setState({
-      [target.name]: target.value
-    })
+  _onSubmit = (e) => {
+    e.preventDefault();
+    this.props.login(this.state);
+    this.setState({username: "", password: ""})
   }
 
-  onSubmit = (e) => {
-    e.preventDefault()
-    this.props.login(this.state, this.props.history)
+  _onChange = ({target}) =>  {
+    this.setState({[target.name]: target.value})
   }
 
   render(){
     return (
       <Container>
-        <Form onSubmit={this.onSubmit} style={{display: "flex", alignItems: "center", justifyContent: "flex-end"}}>
-          {this.props.loginError && <p>Email and/or password is incorrect</p>}
+        <Form onSubmit={this._onSubmit}>
           <FormGroup>
             <Label for="email">Email</Label>
-            <Input onChange={this.onChange} value={this.state.email} name="email" type='email' placeholder='email' />
+            <Input onChange={this._onChange} value={this.state.email} name="email" type='email' placeholder='Email' />
           </FormGroup>
           <FormGroup>
             <Label for="password">Password</Label>
-            <Input onChange={this.onChange} value={this.state.password} name="password" type='password' placeholder='password' />
+            <Input onChange={this._onChange} value={this.state.password} name="password" type='password' placeholder='Password' />
           </FormGroup>
           <Button>Sign in</Button>
         </Form>
