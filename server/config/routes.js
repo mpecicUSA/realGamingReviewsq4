@@ -16,10 +16,10 @@ module.exports = (app) => {
    app.get('/games', games.getAll);
    app.get('/reviews', reviews.getAll);
    app.get('/comments', comments.getAll);
-   app.get('/login', login_register.login);
+   app.post('/login', login_register.login);
    app.get('/register', login_register.register)
 
-   app.use(verifyToken);
+   // app.use(verifyToken);
 
    //TOKEN REQUIRED
    app.delete('/users/delete/:id', users.deleteUser);
