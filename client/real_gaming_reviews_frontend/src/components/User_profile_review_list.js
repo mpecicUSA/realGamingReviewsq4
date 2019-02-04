@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 
 
 
-
-
 class UserProfileReviewList extends Component {
     render() {
       console.log("USER PROPS", this.props)
@@ -28,7 +26,10 @@ class UserProfileReviewList extends Component {
            .map(review => {
              return <div>
               <div>
-                
+                <h3>{review.review_title}</h3>
+              </div>
+              <div>
+                <h4>{review.review}</h4>
               </div>
             </div>
            })
