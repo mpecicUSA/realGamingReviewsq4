@@ -15,10 +15,16 @@ module.exports = {
     },
     // Add a single user
     addUser: (req,res) => {
-        knex('users')
-            .insert(req.body)
-            .then((users)=> {
-                res.json(users)
+      hasher.hash(req.body).then((user)=>{
+          knex('users').insert({
+            userName: user.userName,
+            email: user.email,
+            password: user.password
+          }, 'id').then((results)=>{
+            res.json({message: "Successfully registered, please log in", id:results[0]});
+          }).catch((err)=>{
+            res.status(400).send({message: err});
+          })
         })
     },
     //delete user

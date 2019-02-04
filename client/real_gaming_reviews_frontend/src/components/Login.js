@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Container, Form, Button, Input, FormGroup, Label } from 'reactstrap';
-
+import axios from 'axios'
 class Login extends Component{
 
   state = {
@@ -15,14 +15,32 @@ class Login extends Component{
 
   _onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
+    console.frog = console.log;
+    console.frog('gets here')
+    axios.post('http://localhost:8000/login', {
+      email:this.state.email,
+      password:this.state.password
+    })
+    .then(res => {
+      console.frog('res is', res)
+      localStorage.setItem('token', res.data.token)
+      alert('LOGGED IN')
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Error logging in please try again');
+  });
+    // resp.token;
+    //
+    // localStorage.setItem('token', resp.token);
   }
+
 
 
   render(){
     return (
       <Container>
-        <Form onSubmit={this._onSubmit}>
+        <Form onSubmit={this._onSubmit.bind(this)}>
           <FormGroup>
             <Label for="email">Email</Label>
             <Input onChange={this._onChange} value={this.state.email} name="email" type='email' placeholder='Email' />
