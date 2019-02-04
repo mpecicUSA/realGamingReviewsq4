@@ -24,7 +24,15 @@ class UserProfileReviewList extends Component {
           <h2>Your Reviews:</h2>
         </div>
         <div>
-          {this.props.reviews.filter(review => review.user_id == this.props.match.params.id)}
+          {this.props.reviews.filter(review => review.user_id == this.props.match.params.id)
+           .map(review => {
+             return <div>
+              <div>
+                
+              </div>
+            </div>
+           })
+          }
         </div>
         </>
         );
