@@ -8,15 +8,16 @@ class Login extends Component{
     password: ""
   }
 
-  _onSubmit = (e) => {
-    e.preventDefault();
-    this.props.login(this.state);
-    this.setState({username: "", password: ""})
-  }
 
   _onChange = ({target}) =>  {
     this.setState({[target.name]: target.value})
   }
+
+  _onSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state)
+  }
+
 
   render(){
     return (
@@ -30,7 +31,9 @@ class Login extends Component{
             <Label for="password">Password</Label>
             <Input onChange={this._onChange} value={this.state.password} name="password" type='password' placeholder='Password' />
           </FormGroup>
-          <Button>Sign in</Button>
+          <FormGroup>
+            <Button>Sign in</Button>
+          </FormGroup>
         </Form>
       </Container>
     )

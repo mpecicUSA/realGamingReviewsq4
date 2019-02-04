@@ -6,7 +6,7 @@ const knex = require("../db/knex.js");
 
 
 
-module.exports = { 
+module.exports = {
 
     login: (req, res) => {
         knex('users')
@@ -34,6 +34,7 @@ module.exports = {
     register: (req, res) => {
         hasher.hash(req.body).then((user)=>{
             knex('users').insert({
+              userName: user.userName,
               email: user.email,
               password: user.password
             }, 'id').then((results)=>{
