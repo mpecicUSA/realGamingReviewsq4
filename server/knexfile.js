@@ -6,13 +6,9 @@ module.exports = {
         client: 'pg',
         connection: {
             database: 'realGamingReviews',
-<<<<<<< HEAD
-            host: 'localhost',
-=======
             host: 'localhost'
             // user: 'postgres', 
             // password: 'root'
->>>>>>> b6653bda1a353d590652629a2f7524220ce16fca
         },
         migrations: {
             directory: __dirname + '/db/migrations',
