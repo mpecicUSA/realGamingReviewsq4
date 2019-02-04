@@ -49,7 +49,7 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact render={() => <Home searchBar={this.state.searchBar} games={this.state.games} reviews={this.state.reviews} />} />
                 <Route path="/login" render={(props) => <Login users={this.state.users}/>} />
-                <Route path="/register" render={() => <Register />} />
+                <Route path="/register" render={(props) => <Register {...props} />} />
                 <Route path="/game/:id" render={(props) => <IndividualGameReviewList reviews={this.state.reviews} games={this.state.games} {...props} />} />
                 <Route path="/user/:id" render={(props) => <UserProfileReviewList users={this.state.users} reviews={this.state.reviews} {...props} />} />
                 <Route path="/createreview" render={() => <CreateReview />} />
