@@ -1,60 +1,75 @@
 import React, { Component } from 'react';
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
+import axios from 'axios'
+import { withRouter } from 'react-router-dom'
+
 
 
 
 class CreateReview extends Component {
 
   state = {
-    gameTitle: '',
+    user_id: 1,
+    game_id: 1,
     platform: '',
     rating:'',
-    hoursPlayed: '',
-    reviewTitle: '',
+    hours_played: '',
+    review_title: '',
     reviewContent: ''
 
   }
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
+
+  _onChange = ({target}) =>  {
+    this.setState({[target.id]: target.value})
   }
-  handleSubmit = (e) => {
+
+  _onSubmit = (e) => {
     e.preventDefault();
-    this.props.createReview(this.state)
-    this.props.history.push('./');
+    axios.post('http://localhost:8000/reviews/addReview', {
+      game_id: this.state.game_id,
+      gameTitle: this.state.gameTitle,
+      platform: this.state.platform,
+      rating:this.state.rating,
+      hours_played: this.state.hours_played,
+      review_title: this.state.review_title,
+      review: this.state.review,
+      user_id: this.state.user_id
+    }).then( (response) => {
+      console.log(response);
+      this.props.history.push('/')
+    }).catch( (error) => {
+      console.log(error);
+    })
+
   }
-  
+
     render() {
       return (
         <>
         <Container>
-          <Form onSubmit={this.handleSubmit} className=''>
-              <h3 className=''>Create Your Review</h3>
+          <Form onSubmit={this._onSubmit} className=''>
+              <h3 className=''>Create Your Review For:</h3>
+              <h4>Game Title </h4>
               <FormGroup>
-                <Label htmlFor='gameTitle'>Game Title</Label>
-                <Input type='text' name='text' id='gameTitle' placeholder="Game Title" onChange={this.handleChange}/>
+                <Label htmlFor='platform'>Platform Played On:</Label>
+                <Input type='text' name='text' id='platform' placeholder="Platform" value={this.state.platform} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='platform'>Platform</Label>
-                <Input type='text' name='text' id='platform' placeholder="Platform" onChange={this.handleChange}/>
+                <Label htmlFor='rating'>Your Rating</Label>
+                <Input type='text' name='text' id='rating' placeholder="Rating" value={this.state.rating} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='rating'>Rating</Label>
-                <Input type='text' name='text' id='rating' placeholder="Your Rating" onChange={this.handleChange}/>
+                <Label htmlFor='hours_played'>Total Hours You Have Played</Label>
+                <Input type='text' name='text' id='hours_played' placeholder="Hours" value={this.state.hours_played} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='hoursPlayed'>Hours Played</Label>
-                <Input type='text' name='text' id='hoursPlayed' placeholder="Total Hours Played" onChange={this.handleChange}/>
+                <Label htmlFor='review_title'>Your Review Title</Label>
+                <Input type='text' name='text' id='review_title' placeholder="Review Title" value={this.state.review_title} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='reviewTitle'>Review Title</Label>
-                <Input type='text' name='text' id='reviewTitle' placeholder="Review Title" onChange={this.handleChange}/>
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor='reviewContent'>Review</Label>
-                <Input type='textarea' name='text' id='reviewContent' onChange={this.handleChange}/>
+                <Label htmlFor='review'>Review</Label>
+                <Input type='textarea' name='text' id='review' value={this.state.review} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
                 <Button>Submit</Button>
@@ -66,4 +81,4 @@ class CreateReview extends Component {
     }
   }
 
-  export default CreateReview;
+  export default withRouter(CreateReview);
