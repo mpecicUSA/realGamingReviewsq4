@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button} from "reactstrap";
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer,Button } from "mdbreact";
 import ReactStars from "react-stars"
 import { withRouter } from 'react-router-dom'
 
@@ -12,29 +12,22 @@ class HomeGame extends Component {
   
     render() {
       let gameDetail = this.props.game
-      return (
-        <Container>
-          <Row>
-            <Col>
-              { gameDetail.title }
-            </Col>
-            <Col>
-
-            </Col>
-            <Col>
-            {this.props.reviews.length}
-            </Col>
-            <Col>
+      return(
+      <MDBContainer>
+        <MDBCard style={{ width: "80rem", marginTop: "1rem" }}>
+          <MDBCardBody>
+            <MDBCardTitle>{gameDetail.title}</MDBCardTitle>
+            <MDBCardTitle tag="h6" sub className="mb-2 text-muted">
+              {gameDetail.description}
+            </MDBCardTitle>
+            <MDBCardText>
               <ReactStars count={5} edit={false} value={gameDetail.rating/2} />
-            </Col>
-            <Col>
+            </MDBCardText>
             <Button id={gameDetail.id} onClick={this.buttonClicked}>View</Button> 
-            </Col>
-            <Col>
-              <Button>Review</Button>
-            </Col>
-          </Row>
-        </Container>
+            <Button>Review</Button>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBContainer>
       );
     }
   }

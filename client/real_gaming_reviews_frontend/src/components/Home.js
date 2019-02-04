@@ -22,28 +22,7 @@ class Home extends Component {
         <Container>
           {console.log("Home Review:", this.props.reviews)}
           <h1>Welcome to Real Game Reviews</h1>
-          <h3>Top Games:</h3>
-          <Row>
-            <Col>
-            Title
-            </Col>
-            <Col>
-            
-            </Col>
-            <Col>
-            # of Reviews
-            </Col>
-            <Col>
-            Avg Rating
-            </Col>
-            <Col>
-            View Game Details
-            </Col>
-            <Col>
-            Submit a review
-            </Col>
-          </Row>
-        { game }
+          { game }
         </Container>
       );
     }
