@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
+
 
 class Register extends Component {
   state = {
@@ -19,9 +21,10 @@ class Register extends Component {
       userName: this.state.userName,
       email: this.state.email,
       password: this.state.password
-    }).then(function (response){
+    }).then( (response) => {
       console.log(response);
-    }).catch(function (error){
+      this.props.history.push('/login')
+    }).catch( (error) => {
       console.log(error);
     })
 
@@ -57,4 +60,4 @@ class Register extends Component {
 }
 
 
-  export default Register;
+export default withRouter(Register)
