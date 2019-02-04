@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import { Container, Form, Button, Input, FormGroup, Label } from 'reactstrap';
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
+
 class Login extends Component{
 
   state = {
@@ -24,7 +26,7 @@ class Login extends Component{
     .then(res => {
       console.frog('res is', res)
       localStorage.setItem('token', res.data.token)
-      alert('LOGGED IN')
+      this.props.history.push('/')
     })
     .catch(err => {
       console.error(err);
@@ -58,4 +60,4 @@ class Login extends Component{
   }
 }
 
-export default Login
+export default withRouter(Login)
