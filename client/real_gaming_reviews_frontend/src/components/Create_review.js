@@ -10,8 +10,7 @@ import { withRouter } from 'react-router-dom'
 class CreateReview extends Component {
 
   state = {
-    user_id: 1,
-    game_id: 1,
+    game_id: this.props.history.location,
     platform: '',
     rating:'',
     hours_played: '',
@@ -27,14 +26,13 @@ class CreateReview extends Component {
   _onSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:8000/reviews/addReview', {
-      game_id: this.state.game_id,
-      gameTitle: this.state.gameTitle,
+      game_id: this.props.match.params.id,
       platform: this.state.platform,
       rating:this.state.rating,
       hours_played: this.state.hours_played,
       review_title: this.state.review_title,
       review: this.state.review,
-      user_id: this.state.user_id
+      user_id: localStorage.getItem('user_id')
     }).then( (response) => {
       console.log(response);
       this.props.history.push('/')
@@ -45,6 +43,7 @@ class CreateReview extends Component {
   }
 
     render() {
+      console.log(this.props.match.params.id)
       return (
         <>
         <Container>

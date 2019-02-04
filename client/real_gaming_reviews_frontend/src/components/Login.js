@@ -26,6 +26,8 @@ class Login extends Component{
     .then(res => {
       console.frog('res is', res)
       localStorage.setItem('token', res.data.token)
+      localStorage.setItem('user_id', res.data.user.id);
+      localStorage.setItem('userName', res.data.user.userName);
       this.props.history.push('/')
     })
     .catch(err => {

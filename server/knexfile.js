@@ -7,7 +7,7 @@ module.exports = {
         connection: {
             database: 'realGamingReviews',
             host: 'localhost'
-            // user: 'postgres', 
+            // user: 'postgres',
             // password: 'root'
         },
         migrations: {
