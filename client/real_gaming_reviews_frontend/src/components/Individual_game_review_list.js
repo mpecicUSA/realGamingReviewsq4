@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col, Container } from 'reactstrap'
+import {Row, Col, Container, Button } from 'reactstrap'
 
 
 const header = {
@@ -16,7 +16,11 @@ const header = {
 const title = {
   styles:{
     margintop: "%",
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: "#ffa726",
+    color: "white",
+    fontSize: "40px",
+    marginLeft: "2%"
   }
 }
 
@@ -34,7 +38,15 @@ const description = {
   styles: {
     backgroundColor: "#ffa726",
     fontSize: "25px",
-    color: "white"
+    color: "white",
+    marginLeft: "2%",
+    marginBottom: "30px"
+  }
+}
+
+const button = {
+  styles: {
+    backgroundColor: "#ffa726 !important"
   }
 }
 
@@ -70,18 +82,14 @@ class IndividualGameReviewList extends Component {
          <div>
           <span style={header.styles}>{gameTitle.title}</span>
          </div>
-         <Row>
-           <Col>
           <div>
             <img style={image.styles} src={gameTitle.img} alt="image"/>
           </div>
-          <div style={description.styles}>
-            <span>{gameTitle.description}</span>
+          <div>
+            <span style={description.styles}>{gameTitle.description}</span>
           </div>
-          </Col>
-         </Row>
          <div>
-           <h2 style={title.styles}>{gameTitle.title} Reviews:</h2>
+           <span style={title.styles}>{gameTitle.title} Reviews</span>
          </div>
          {console.log("This props reviews", this.props.reviews)}
          {console.log(this.props.match.params.id)}
