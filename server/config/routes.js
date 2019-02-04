@@ -43,7 +43,7 @@ function verifyToken(req, res, next) {
       // verifies secret and checks exp
       jwt.verify(token, secret, function(err, decoded) {
         if (err) {
-          return res.status(401).send({message: 'You are not authorized to view that resource, Please log in to continue.' });
+          return res.status(401).send({message: 'Token incorrect, You are not authorized to view that resource, Please log in to continue.' });
         } else {
           // if everything is good, save to request for use in other routes
           delete decoded.password;
@@ -57,7 +57,7 @@ function verifyToken(req, res, next) {
       // if there is no token
       // return an error
       return res.status(401).send({
-          message: 'You are not authorized to view that resource, Please log in to continue.'
+          message: 'No Token, You are not authorized to view that resource, Please log in to continue.'
       });
 
     }
