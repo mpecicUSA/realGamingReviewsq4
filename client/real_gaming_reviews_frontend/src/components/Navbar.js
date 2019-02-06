@@ -10,7 +10,7 @@ const header = {
   }
 }
 
-const link = { 
+const link = {
   styles: {
     color: "white"
   }
@@ -49,7 +49,7 @@ render() {
             </MDBNavItem>
           </MDBNavbarNav>
         </> : null}
-        
+
           <MDBNavbarNav right>
             <MDBNavItem >
               <MDBNavLink style={link.styles} to="/">Home</MDBNavLink>
@@ -57,11 +57,11 @@ render() {
           {
             localStorage.getItem('token') ? <>
             <MDBNavItem>
-              <MDBNavLink style={link.styles} to="/user/:id">Profile</MDBNavLink>
-            </MDBNavItem> 
+              <MDBNavLink style={link.styles} to={"/user/"+localStorage.getItem('user_id')}>Profile</MDBNavLink>
+            </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink style={link.styles} to="/user/logout">Logout</MDBNavLink>
-            </MDBNavItem> 
+            </MDBNavItem>
             </>: <>
             <MDBNavItem>
               <MDBNavLink style={link.styles} to="/login">Login</MDBNavLink>

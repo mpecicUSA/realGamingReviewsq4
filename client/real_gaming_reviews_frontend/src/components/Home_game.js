@@ -9,7 +9,11 @@ class HomeGame extends Component {
   buttonClicked = (e) => {
     this.props.history.push(`/game/${this.props.game.id}`)
   }
-  
+
+  createReview = (e) => {
+    this.props.history.push(`/createreview/${this.props.game.id}`)
+  }
+
     render() {
       let gameDetail = this.props.game
       return(
@@ -23,13 +27,13 @@ class HomeGame extends Component {
             <MDBCardText>
               <ReactStars count={5} edit={false} value={gameDetail.rating/2} />
             </MDBCardText>
-            <Button id={gameDetail.id} onClick={this.buttonClicked}>View</Button> 
-            <Button>Review</Button>
+            <Button id={gameDetail.id} onClick={this.buttonClicked}>View</Button>
+            <Button id={gameDetail.id} onClick={this.createReview}>Create Review</Button>
           </MDBCardBody>
         </MDBCard>
       </MDBContainer>
       );
     }
   }
-  
+
   export default withRouter(HomeGame);
