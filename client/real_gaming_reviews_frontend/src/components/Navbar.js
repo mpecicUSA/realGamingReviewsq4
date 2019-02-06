@@ -31,7 +31,6 @@ toggleCollapse = () => {
 }
 
 render() {
-  let userId = localStorage.getItem('user_id')
   return (
       <MDBNavbar style={header.styles} expand="md">
         <MDBNavbarBrand>
@@ -58,7 +57,7 @@ render() {
           {
             localStorage.getItem('token') ? <>
             <MDBNavItem>
-              <MDBNavLink style={link.styles} to="/user/userId">Profile</MDBNavLink>
+              <MDBNavLink style={link.styles} to={"/user/"+localStorage.getItem('user_id')}>Profile</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink style={link.styles} to="/user/logout">Logout</MDBNavLink>
