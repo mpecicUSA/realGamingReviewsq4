@@ -10,7 +10,7 @@ const header = {
   }
 }
 
-const link = { 
+const link = {
   styles: {
     color: "white"
   }
@@ -31,6 +31,7 @@ toggleCollapse = () => {
 }
 
 render() {
+  let userId = localStorage.getItem('user_id')
   return (
       <MDBNavbar style={header.styles} expand="md">
         <MDBNavbarBrand>
@@ -49,7 +50,7 @@ render() {
             </MDBNavItem>
           </MDBNavbarNav>
         </> : null}
-        
+
           <MDBNavbarNav right>
             <MDBNavItem >
               <MDBNavLink style={link.styles} to="/">Home</MDBNavLink>
@@ -57,11 +58,11 @@ render() {
           {
             localStorage.getItem('token') ? <>
             <MDBNavItem>
-              <MDBNavLink style={link.styles} to="/user/:id">Profile</MDBNavLink>
-            </MDBNavItem> 
+              <MDBNavLink style={link.styles} to="/user/userId">Profile</MDBNavLink>
+            </MDBNavItem>
             <MDBNavItem>
               <MDBNavLink style={link.styles} to="/user/logout">Logout</MDBNavLink>
-            </MDBNavItem> 
+            </MDBNavItem>
             </>: <>
             <MDBNavItem>
               <MDBNavLink style={link.styles} to="/login">Login</MDBNavLink>

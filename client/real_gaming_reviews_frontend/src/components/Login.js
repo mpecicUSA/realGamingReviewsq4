@@ -33,10 +33,7 @@ class Login extends Component{
     .catch(err => {
       console.error(err);
       alert('Error logging in please try again');
-  });
-    // resp.token;
-    //
-    // localStorage.setItem('token', resp.token);
+    });
   }
 
 
