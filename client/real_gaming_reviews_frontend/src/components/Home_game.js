@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer,Button } from "mdbreact";
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer } from "mdbreact";
 import ReactStars from "react-stars"
 import { withRouter } from 'react-router-dom'
 
@@ -27,8 +27,8 @@ class HomeGame extends Component {
             <MDBCardText>
               <ReactStars count={5} edit={false} value={gameDetail.rating/2} />
             </MDBCardText>
-            <Button id={gameDetail.id} onClick={this.buttonClicked}>View</Button>
-            <Button id={gameDetail.id} onClick={this.createReview}>Create Review</Button>
+            <button  class="btn btn-warning" id={gameDetail.id} onClick={this.buttonClicked}>View</button>
+            < button class="btn btn-primary"  id={gameDetail.id} onClick={this.createReview}>Create Review</button>
           </MDBCardBody>
         </MDBCard>
       </MDBContainer>

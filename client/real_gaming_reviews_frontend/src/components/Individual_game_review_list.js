@@ -71,7 +71,11 @@ const review_itself = {
 }
 
 
+
 class IndividualGameReviewList extends Component {
+  createReview = (e) => {
+    this.props.history.push(`/createreview/${e.target.attributes.id.value}`)
+  }
     render() {
       console.log('hello', this.props)
       let gameTitle = this.props.games.filter(game => game.id == this.props.match.params.id)[0]
@@ -91,9 +95,11 @@ class IndividualGameReviewList extends Component {
          <div>
            <span style={title.styles}>{gameTitle.title} Reviews</span>
          </div>
-         {console.log("This props reviews", this.props.reviews)}
+         <button  class="btn btn-primary" id={gameTitle.id} onClick={this.createReview}>Create Review</button>
+
+         {/* {console.log("This props reviews", this.props.reviews)}
          {console.log(this.props.match.params.id)}
-         {console.log(this.props.reviews.filter(review => review.id == this.props.match.params.id))}
+         {console.log(this.props.reviews.filter(review => review.id == this.props.match.params.id))} */}
          {this.props.reviews.filter(review => review.game_id == this.props.match.params.id)
           .map(review => {
             return <div>
@@ -102,6 +108,7 @@ class IndividualGameReviewList extends Component {
                   </div>
           }) 
         }
+
         </>
       )
       }else{

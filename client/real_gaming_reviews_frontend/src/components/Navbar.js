@@ -30,11 +30,16 @@ toggleCollapse = () => {
   this.setState({ isOpen: !this.state.isOpen });
 }
 
+clearLocal = () => {
+  localStorage.removeItem("token")
+}
 render() {
   return (
       <MDBNavbar style={header.styles} expand="md">
         <MDBNavbarBrand>
-          <strong className="white-text">Real Gaming Reviews</strong>
+          {/* <strong className="white-text">Real Gaming Reviews</strong> */}
+          <MDBNavLink className="white-text" to="/">Real Gaming Reviews</MDBNavLink>
+
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
@@ -60,7 +65,7 @@ render() {
               <MDBNavLink style={link.styles} to={"/user/"+localStorage.getItem('user_id')}>Profile</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink style={link.styles} to="/user/logout">Logout</MDBNavLink>
+              <MDBNavLink style={link.styles} to={"/login"} onClick={this.clearLocal}>Logout</MDBNavLink>
             </MDBNavItem>
             </>: <>
             <MDBNavItem>

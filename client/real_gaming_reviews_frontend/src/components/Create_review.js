@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
@@ -43,19 +43,20 @@ class CreateReview extends Component {
   }
 
     render() {
-      console.log(this.props.match.params.id)
+      let gameId = Number(this.props.match.params.id)
+      let game = this.props.games.filter(game => Number(game.id) == gameId)[0];
       return (
         <>
         <Container>
           <Form onSubmit={this._onSubmit} className=''>
               <h3 className=''>Create Your Review For:</h3>
-              <h4>Game Title </h4>
+              <h4>{game && game.title}</h4>
               <FormGroup>
                 <Label htmlFor='platform'>Platform Played On:</Label>
                 <Input type='text' name='text' id='platform' placeholder="Platform" value={this.state.platform} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
-                <Label htmlFor='rating'>Your Rating</Label>
+                <Label htmlFor='rating'>Your Rating (Out of 10)</Label>
                 <Input type='text' name='text' id='rating' placeholder="Rating" value={this.state.rating} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
@@ -71,7 +72,7 @@ class CreateReview extends Component {
                 <Input type='textarea' name='text' id='review' value={this.state.review} onChange={this._onChange}/>
               </FormGroup>
               <FormGroup>
-                <Button>Submit</Button>
+                <button class="btn btn-warning">Submit</button>
               </FormGroup>
             </Form>
           </Container>
