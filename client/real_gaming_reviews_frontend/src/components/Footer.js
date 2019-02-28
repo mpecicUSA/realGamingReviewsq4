@@ -1,27 +1,18 @@
 import React from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBNavLink } from "mdbreact";
 
 const Footer = () => {
   return (
     <MDBFooter color="unique-color-dark" className="font-small pt-4 mt-4">
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
-          <MDBCol md="6">
+          <MDBCol md="12">
             <h5 className="title">Real Gaming Reviews</h5>
             <p>
               Thanks for visiting our site! 
             </p>
           </MDBCol>
           <MDBCol md="6">
-            <h5 className="title">Links</h5>
-            <ul>
-              <li className="list-unstyled">
-                <a href="#!">Contact Us</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Privacy Policy</a>
-              </li>
-            </ul>
           </MDBCol>
         </MDBRow>
       </MDBContainer>

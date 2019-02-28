@@ -4,11 +4,16 @@ if(process.env.NODE_ENV !== "production")
 module.exports = {
     development: {
         client: 'pg',
+        // connection: {
+        //     database: process.env.RDS_DB,
+        //     host: process.env.RDS_HOST,
+        //     user: process.env.RDS_USER,
+        //     password: process.env.RDS_PASSWORD,
+        //     port: process.env.RDS_PORT
+        // },
         connection: {
-            database: 'realGamingReviews',
-            host: 'localhost'
-            // user: 'postgres',
-            // password: 'root'
+            database: "realGamingReviews",
+            host: "localhost"
         },
         migrations: {
             directory: __dirname + '/db/migrations',

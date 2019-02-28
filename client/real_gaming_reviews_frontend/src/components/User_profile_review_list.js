@@ -8,7 +8,7 @@ class UserProfileReviewList extends Component {
     render() {
       console.log("USER PROPS", this.props)
       console.log("Match", this.props.match.params.id)
-       let individualUser = this.props.users.filter(user => user.id == this.props.match.params.id)[0]
+       let individualUser = this.props.users.filter(user => Number(user.id) === Number(this.props.match.params.id))[0]
        if(individualUser){
       return (
         <>
@@ -16,13 +16,13 @@ class UserProfileReviewList extends Component {
           <h1>{individualUser.userName}</h1>
         </div>
         <div>
-          <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif" alt="profile image" />
+          <img src="https://cdn.tutsplus.com/net/uploads/legacy/958_placeholders/placehold.gif" alt="profile" />
         </div>
         <div>
           <h2>Your Reviews:</h2>
         </div>
         <div>
-          {this.props.reviews.filter(review => review.user_id == this.props.match.params.id)
+          {this.props.reviews.filter(review => review.user_id === this.props.match.params.id)
            .map(review => {
              return <div>
               <div>

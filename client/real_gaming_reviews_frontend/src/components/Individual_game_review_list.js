@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Col, Container, Button } from 'reactstrap'
+
 
 
 const header = {
@@ -78,7 +78,7 @@ class IndividualGameReviewList extends Component {
   }
     render() {
       console.log('hello', this.props)
-      let gameTitle = this.props.games.filter(game => game.id == this.props.match.params.id)[0]
+      let gameTitle = this.props.games.filter(game => Number(game.id) === Number(this.props.match.params.id))[0]
       console.log('GAMENAME', gameTitle)
       if(gameTitle){
       return (
@@ -87,7 +87,7 @@ class IndividualGameReviewList extends Component {
           <span style={header.styles}>{gameTitle.title}</span>
          </div>
           <div>
-            <img style={image.styles} src={gameTitle.img} alt="image"/>
+            <img style={image.styles} src={gameTitle.img} alt="Game Album Artwork"/>
           </div>
           <div>
             <span style={description.styles}>{gameTitle.description}</span>
@@ -100,11 +100,11 @@ class IndividualGameReviewList extends Component {
          {/* {console.log("This props reviews", this.props.reviews)}
          {console.log(this.props.match.params.id)}
          {console.log(this.props.reviews.filter(review => review.id == this.props.match.params.id))} */}
-         {this.props.reviews.filter(review => review.game_id == this.props.match.params.id)
+        {this.props.reviews.filter(review => Number(review.game_id) === Number(this.props.match.params.id))
           .map(review => {
-            return <div>
-                    <span style={reviewTitle.styles}>Review Title - {review.review_title}</span>
-                    <span style={review_itself.styles}>Review - {review.review}</span>
+            return <div >
+                    <span style={reviewTitle.styles}>{review.review_title}</span>
+                    <span style={review_itself.styles}>{review.review}</span>
                   </div>
           }) 
         }

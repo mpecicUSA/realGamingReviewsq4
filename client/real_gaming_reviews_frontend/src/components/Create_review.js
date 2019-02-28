@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Form, FormGroup, Label, Input } from 'reactstrap';
-import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 
@@ -44,7 +43,7 @@ class CreateReview extends Component {
 
     render() {
       let gameId = Number(this.props.match.params.id)
-      let game = this.props.games.filter(game => Number(game.id) == gameId)[0];
+      let game = this.props.games.filter(game => Number(game.id) === gameId)[0];
       return (
         <>
         <Container>

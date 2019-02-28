@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HomeGame from './Home_game'
-import {Row, Col, Container } from 'reactstrap'
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+
 
 
 
@@ -17,13 +18,14 @@ class Home extends Component {
       let filteredGames = this.props.games.filter(game => game.title.toUpperCase().includes((this.props.searchBar).toUpperCase()))
         let game = [];
 
-        game = filteredGames.map(game => <HomeGame key={game.id} game={game} reviews={this.props.reviews.filter(review => review.game_id == game.id)} />)
+        game = filteredGames.map(game =>   <HomeGame key={game.id} game={game} reviews={this.props.reviews.filter(review => review.game_id === game.id)} />);
       return (
-        <Container>
-          {console.log("Home Review:", this.props.reviews)}
+        <MDBContainer>
+          <MDBRow> 
           <h1>Welcome to Real Game Reviews</h1>
-          { game }
-        </Container>
+          </MDBRow>
+              { game }
+        </MDBContainer>
       );
     }
   }

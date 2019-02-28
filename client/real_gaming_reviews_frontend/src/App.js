@@ -3,13 +3,14 @@ import './App.css';
 import Navbarz from './components/Navbar.js'
 import Footer from './components/Footer.js'
 import Home from './components/Home.js'
-import HomeGame from "./components/Home_game"
 import Login from './components/Login.js'
 import Register from './components/Register.js'
 import IndividualGameReviewList from './components/Individual_game_review_list.js'
 import UserProfileReviewList from './components/User_profile_review_list.js'
 import CreateReview from './components/Create_review.js'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+
 
 class App extends Component {
   state = {
@@ -55,9 +56,6 @@ class App extends Component {
                 <Route path="/createreview/:id" render={() => <CreateReview games={this.state.games} />} />
               </Switch>
             </div>
-
-
-
             <Footer />
         </>
       </BrowserRouter>
@@ -66,22 +64,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-// TODO look into instead of route () => compone
-
-// If props not needed to pass down use component else use () => and you must declare what is being passed along with {...props} to pass down history/ router props
-
-// GENERAL
-// TODO UNDERSTAND TOKEN, - WHERE IS IT ?
-
-// NATHAN ?
-// TODO USER LOGIN / REGISTRATION
-// TODO CREATE REVIEW
-
-// MARKO
-// TODO STYLING ON HOME PAGE GAMES, CLEAR SEPERATION OF GAME TITLES
-// TODO REVIEW BUTTON TAKES YOU TO REVIEW COMPONENT
-// SORT GAMES BY TOP RATED
-// ON CLICK OF NAV BAR UPDATE ACTIVE TAB

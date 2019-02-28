@@ -44,7 +44,7 @@ render() {
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
         {this.props.history.location.pathname === "/" ? <>
-        <MDBNavbarNav center>
+        <MDBNavbarNav center="true">
             <MDBNavItem>
               <MDBFormInline waves>
                 <div className="md-form my-0">

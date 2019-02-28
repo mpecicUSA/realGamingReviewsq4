@@ -18,7 +18,7 @@ class HomeGame extends Component {
       let gameDetail = this.props.game
       return(
       <MDBContainer>
-        <MDBCard style={{ width: "80rem", marginTop: "1rem" }}>
+        <MDBCard style={{ width: "50rem", marginTop: "1rem" }}>
           <MDBCardBody>
             <MDBCardTitle>{gameDetail.title}</MDBCardTitle>
             <MDBCardTitle tag="h6" sub className="mb-2 text-muted">
